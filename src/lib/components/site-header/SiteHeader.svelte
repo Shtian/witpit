@@ -12,6 +12,7 @@
 
 	const links = [
 		{ name: 'Overview', href: '/wit' },
+		{ name: 'Add', href: '/wit/create' },
 		{ name: 'Profile', href: '/auth/profile' }
 	];
 
