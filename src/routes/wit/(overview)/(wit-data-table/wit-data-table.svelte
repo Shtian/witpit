@@ -2,8 +2,10 @@
 	import { createRender, createTable, Render, Subscribe } from 'svelte-headless-table';
 	import { readable } from 'svelte/store';
 	import * as Table from '$lib/components/ui/table';
-	import type { Wit } from '$lib/supabase/wit';
+	import type { Wit } from '$lib/supabase/wit.types';
 	import WitDataTableLink from './wit-data-table-link.svelte';
+	import WitDataTableCategory from './wit-data-table-category.svelte';
+	import WitDataTableTags from './wit-data-table-tags.svelte';
 	export let wits: Wit[];
 
 	const table = createTable(readable(wits));
@@ -17,8 +19,22 @@
 
 	const columns = table.createColumns([
 		table.column({
+			accessor: 'category',
+			header: 'Category',
+			cell: ({ value }) => {
+				return createRender(WitDataTableCategory, { category: value });
+			}
+		}),
+		table.column({
 			accessor: 'name',
 			header: 'Name'
+		}),
+		table.column({
+			accessor: 'tags',
+			header: 'Tags',
+			cell: ({ value }) => {
+				return createRender(WitDataTableTags, { tags: value });
+			}
 		}),
 		table.column({
 			accessor: ({ author }) => author.username,

@@ -21,11 +21,11 @@ export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 export const actions = {
 	default: async (event) => {
 		const form = await superValidate(event, zod(createWitSchema));
-		console.log(form);
 		if (!form.valid) {
 			return message(form, { type: 'error', text: 'Invalid form' });
 		}
 		const { name, content, category, tags, reference } = form.data;
+
 		const {
 			locals: { supabase }
 		} = event;

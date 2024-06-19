@@ -13,7 +13,8 @@
 
 	const links = [
 		{ name: 'Overview', href: '/wit' },
-		{ name: 'Add', href: '/wit/create' }
+		{ name: 'Add', href: '/wit/create' },
+		{ name: 'Profile', href: '/auth/profile' }
 	];
 
 	let isMainMenuOpen = false;
@@ -155,7 +156,7 @@
 								{#if isLoggedIn}
 									<Button
 										variant="ghost"
-										href="/profile"
+										href="/auth/profile"
 										class="block px-4 py-2 text-sm text-foreground"
 										role="menuitem"
 										on:click={() => (isUserMenuOpen = false)}>Profile</Button
@@ -198,7 +199,7 @@
 					{#if isLoggedIn}
 						<div class="flex space-x-4">
 							{#each links as link}
-								{#if $page.url.pathname.includes(link.href)}
+								{#if $page.url.pathname === link.href}
 									<a href={link.href} class="text-foreground" aria-current="page">{link.name}</a>
 								{:else}
 									<a href={link.href} class="text-foreground/60 hover:text-foreground"

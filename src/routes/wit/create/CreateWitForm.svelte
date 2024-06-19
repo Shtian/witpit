@@ -8,6 +8,7 @@
 	import Textarea from '$lib/components/ui/textarea/textarea.svelte';
 	import { LoaderCircle } from 'lucide-svelte';
 	import { toast } from '$lib/stores/ToastStore';
+	import { capitalize, toWitCategory } from '$lib/utils/string-utils';
 
 	export let data: SuperValidated<Infer<typeof createWitSchema>>;
 
@@ -16,7 +17,7 @@
 		onUpdated: (event) => {
 			if (event.form.valid) {
 				toast.send({
-					message: `${event.form.data.category} created!`,
+					message: `${capitalize(event.form.data.category)} created!`,
 					type: 'success'
 				});
 			} else {
@@ -38,21 +39,22 @@
 				<div class="flex items-center space-x-3 space-y-0">
 					<Form.Control let:attrs>
 						<RadioGroup.Item value="wit" {...attrs} />
-						<Form.Label class="font-normal">🧠 Wit</Form.Label>
+						<Form.Label class="font-normal">{toWitCategory('wit')}</Form.Label>
 					</Form.Control>
 				</div>
 				<div class="flex items-center space-x-3 space-y-0">
 					<Form.Control let:attrs>
 						<RadioGroup.Item value="win" {...attrs} />
-						<Form.Label class="font-normal">🏆 Win</Form.Label>
+						<Form.Label class="font-normal">{toWitCategory('win')}</Form.Label>
 					</Form.Control>
 				</div>
 				<div class="flex items-center space-x-3 space-y-0">
 					<Form.Control let:attrs>
 						<RadioGroup.Item value="wipeout" {...attrs} />
-						<Form.Label class="font-normal">💣 Wipeout</Form.Label>
+						<Form.Label class="font-normal">{toWitCategory('wipeout')}</Form.Label>
 					</Form.Control>
 				</div>
+				<RadioGroup.Input name="category" />
 			</RadioGroup.Root>
 		</Form.Control>
 	</Form.Fieldset>
@@ -61,6 +63,7 @@
 			<Form.Label>Name</Form.Label>
 			<Input {...attrs} bind:value={$formData.name} />
 		</Form.Control>
+		<Form.FormDescription>Short descriptive name for the entry</Form.FormDescription>
 		<Form.FieldErrors />
 	</Form.Field>
 	<Form.Field {form} name="content">
