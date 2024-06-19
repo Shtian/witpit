@@ -7,6 +7,7 @@
 	import { clickOutside } from '$lib/utils/clickOutside';
 	import Logo from '../icons/Logo.svelte';
 	import { Button } from '$lib/components/ui/button/index';
+	import { getAvatarUrl } from '$lib/utils/avatar-utils';
 
 	export let session: Session | null = null;
 
@@ -135,7 +136,7 @@
 											class="absolute left-0 top-0 h-8 w-8 rounded-full"
 											width="32"
 											height="32"
-											src={`https://gravatar.com/avatar/abc`}
+											src={getAvatarUrl(session?.user.id)}
 											alt=""
 										/>
 									{/if}

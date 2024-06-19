@@ -13,7 +13,7 @@ export const load: PageServerLoad = async ({ locals: { getSession } }) => {
 	}
 
 	return {
-		title: 'Login',
+		title: 'Add Wit',
 		form: await superValidate(zod(createWitSchema))
 	};
 };
@@ -30,8 +30,7 @@ export const actions = {
 			locals: { supabase }
 		} = event;
 		const { data, error } = await supabase.auth.getUser();
-		console.log({ data });
-		console.log({ error });
+
 		if (error || !data?.user?.id) {
 			return message(
 				form,

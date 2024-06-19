@@ -1,4 +1,5 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
+import tailwindcssForms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -61,7 +62,8 @@ const config = {
 				toast: 9999
 			}
 		}
-	}
+	},
+	plugins: [tailwindcssForms]
 };
 
 export default config;
