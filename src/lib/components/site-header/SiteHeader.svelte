@@ -13,8 +13,7 @@
 
 	const links = [
 		{ name: 'Overview', href: '/wit' },
-		{ name: 'Add', href: '/wit/create' },
-		{ name: 'Profile', href: '/auth/profile' }
+		{ name: 'Add', href: '/wit/create' }
 	];
 
 	let isMainMenuOpen = false;
@@ -81,7 +80,7 @@
 						{#if isLoggedIn}
 							<div class="flex space-x-4">
 								{#each links as link}
-									{#if $page.url.pathname.includes(link.href)}
+									{#if $page.url.pathname === link.href}
 										<a href={link.href} class="text-foreground" aria-current="page">{link.name}</a>
 									{:else}
 										<a href={link.href} class="text-foreground/60 hover:text-foreground"
