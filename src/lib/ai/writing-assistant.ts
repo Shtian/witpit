@@ -1,4 +1,4 @@
-import { PUBLIC_OPENAI_ASSITANT_ID } from '$env/static/public';
+import { OPENAI_ASSITANT_ID } from '$env/static/private';
 import { openai } from './openai-client';
 
 export async function getSuggestion(prompt: string) {
@@ -10,7 +10,7 @@ export async function getSuggestion(prompt: string) {
 
 	// eslint-disable-next-line prefer-const
 	let run = await openai.beta.threads.runs.createAndPoll(thread.id, {
-		assistant_id: PUBLIC_OPENAI_ASSITANT_ID
+		assistant_id: OPENAI_ASSITANT_ID
 	});
 
 	if (run.status === 'completed') {
