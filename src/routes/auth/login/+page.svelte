@@ -8,13 +8,9 @@
 	const supabase = data.supabase;
 </script>
 
-<div class="my-10 content-grid">
-	<div class="sm:max-w-sm mx-auto">
-		<h2
-			class="mb-8 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-		>
-			Log in
-		</h2>
+<div class="my-10 content-grid items-center">
+	<div class="w-full max-w-sm mx-auto">
+		<h1 class="mb-10 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Log in</h1>
 		<LoginForm data={data.form} />
 		<hr class="my-4" />
 		<div class="flex flex-col gap-4">

@@ -6,7 +6,7 @@
 </script>
 
 <div class="my-10 content-grid">
-	<div class="sm:max-w-sm mx-auto">
+	<div class="w-full max-w-sm mx-auto">
 		<h2
 			class="mb-8 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
 		>

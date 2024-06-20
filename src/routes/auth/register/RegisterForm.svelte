@@ -1,19 +1,16 @@
 <script lang="ts">
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
-	import SuperDebug, { superForm, type SuperValidated } from 'sveltekit-superforms';
+	import { superForm, type SuperValidated } from 'sveltekit-superforms';
 	import { zodClient, type Infer } from 'sveltekit-superforms/adapters';
 	import { registerSchema } from './schema';
-	import { dev } from '$app/environment';
 	import InlineMessage from '$lib/components/inline-message/InlineMessage.svelte';
-	import { Loader, LoaderCircle } from 'lucide-svelte';
+	import { LoaderCircle } from 'lucide-svelte';
 	export let data: SuperValidated<Infer<typeof registerSchema>>;
 
 	const form = superForm(data, { validators: zodClient(registerSchema) });
 	const { form: formData, enhance, message, delayed } = form;
 </script>
-
-<SuperDebug collapsible collapsed theme="vscode" data={form} display={dev} />
 
 {#if $message}
 	<InlineMessage msgType={$message.type === 'success' ? 'success' : 'error'}
