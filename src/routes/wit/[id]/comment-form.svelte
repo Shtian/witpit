@@ -14,12 +14,7 @@
 	const form = superForm(data, {
 		validators: zodClient(createCommentSchema),
 		onUpdated: (event) => {
-			if (event.form.valid) {
-				toast.send({
-					message: `Comment added!`,
-					type: 'success'
-				});
-			} else {
+			if (!event.form.valid) {
 				toast.send({
 					message: 'Please fix the errors in the comment form.',
 					type: 'error'

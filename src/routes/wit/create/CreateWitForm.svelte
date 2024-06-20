@@ -6,9 +6,10 @@
 	import { createWitSchema } from './schema';
 	import { superForm, type SuperValidated } from 'sveltekit-superforms';
 	import Textarea from '$lib/components/ui/textarea/textarea.svelte';
-	import { LoaderCircle } from 'lucide-svelte';
+	import { LoaderCircle, Sparkles } from 'lucide-svelte';
 	import { toast } from '$lib/stores/ToastStore';
 	import { capitalize, toWitCategory } from '$lib/utils/string-utils';
+	import EnhanceFieldDialog from './EnhanceFieldDialog.svelte';
 
 	export let data: SuperValidated<Infer<typeof createWitSchema>>;
 
@@ -69,7 +70,16 @@
 	<Form.Field {form} name="content">
 		<Form.Control let:attrs>
 			<Form.Label>Content</Form.Label>
-			<Textarea {...attrs} bind:value={$formData.content} />
+			<div class="relative">
+				<Textarea {...attrs} class="pr-16" bind:value={$formData.content} />
+				<EnhanceFieldDialog
+					triggerClass="absolute right-1 top-1"
+					field={$formData.content}
+					on:suggestion={(e) => {
+						$formData.content = e.detail;
+					}}
+				/>
+			</div>
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
