@@ -8,13 +8,19 @@ export async function POST(event) {
 
 	if (!result) return error(500, 'Could not rewrite the text');
 
+	const requestOrigin = event.request.headers.get('origin');
+	const allowOrigin =
+		requestOrigin === 'http://localhost:5173' || requestOrigin === 'https://witpit.vercel.app'
+			? requestOrigin
+			: '';
+
 	return json(
 		{
 			content: result
 		},
 		{
 			headers: {
-				'Access-Control-Allow-Origin': 'http://localhost:5173',
+				'Access-Control-Allow-Origin': allowOrigin,
 				'Access-Control-Allow-Methods': 'POST, OPTIONS',
 				'Access-Control-Allow-Headers': 'Content-Type'
 			}
