@@ -7,11 +7,7 @@
 
 <div class="my-10 content-grid">
 	<div class="w-full max-w-sm mx-auto">
-		<h2
-			class="mb-8 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-		>
-			Register an account
-		</h2>
+		<h1 class="mb-10 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Log in</h1>
 		<RegisterForm data={data.form} />
 		<p class="mt-10 text-center text-sm text-gray-400">
 			Already a member?
