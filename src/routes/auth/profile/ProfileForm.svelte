@@ -39,6 +39,6 @@
 		<Form.FieldErrors />
 	</Form.Field>
 	<Form.Button class="mt-4" disabled={$delayed}
-		>Update {#if $delayed}<LoaderCircle class="animate-spin" />{/if}</Form.Button
+		>Update {#if $delayed}<LoaderCircle class="animate-spin ml-2" />{/if}</Form.Button
 	>
 </form>

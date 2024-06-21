@@ -54,7 +54,7 @@
 		</Form.Field>
 		<div class="absolute right-0 bottom-0 p-2">
 			<Form.Button class="mt-4" disabled={$delayed}
-				>Submit {#if $delayed}<LoaderCircle class="animate-spin" />{/if}</Form.Button
+				>Submit {#if $delayed}<LoaderCircle class="animate-spin ml-2" />{/if}</Form.Button
 			>
 		</div>
 	</form>

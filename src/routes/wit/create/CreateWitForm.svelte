@@ -120,6 +120,6 @@
 		<Form.FieldErrors />
 	</Form.Field>
 	<Form.Button disabled={$delayed}
-		>Add {#if $delayed}<LoaderCircle class="animate-spin" />{/if}</Form.Button
+		>Add {#if $delayed}<LoaderCircle class="animate-spin ml-2" />{/if}</Form.Button
 	>
 </form>
