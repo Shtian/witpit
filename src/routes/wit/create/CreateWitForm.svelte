@@ -40,19 +40,30 @@
 				<div class="flex items-center space-x-3 space-y-0">
 					<Form.Control let:attrs>
 						<RadioGroup.Item value="wit" {...attrs} />
-						<Form.Label class="font-normal">{toWitCategory('wit')}</Form.Label>
+						<Form.Label class="font-normal"
+							>{toWitCategory('wit')}
+							<span class="text-sm text-muted-foreground">(newfound knowledge)</span></Form.Label
+						>
 					</Form.Control>
 				</div>
 				<div class="flex items-center space-x-3 space-y-0">
 					<Form.Control let:attrs>
 						<RadioGroup.Item value="win" {...attrs} />
-						<Form.Label class="font-normal">{toWitCategory('win')}</Form.Label>
+						<Form.Label class="font-normal"
+							>{toWitCategory('win')}
+							<span class="text-sm text-muted-foreground">(achievement, small or large)</span
+							></Form.Label
+						>
 					</Form.Control>
 				</div>
 				<div class="flex items-center space-x-3 space-y-0">
 					<Form.Control let:attrs>
 						<RadioGroup.Item value="wipeout" {...attrs} />
-						<Form.Label class="font-normal">{toWitCategory('wipeout')}</Form.Label>
+						<Form.Label class="font-normal"
+							>{toWitCategory('wipeout')}
+							<span class="text-sm text-muted-foreground">(mistakes you've learned from)</span
+							></Form.Label
+						>
 					</Form.Control>
 				</div>
 				<RadioGroup.Input name="category" />
@@ -71,7 +82,12 @@
 		<Form.Control let:attrs>
 			<Form.Label>Content</Form.Label>
 			<div class="relative">
-				<Textarea {...attrs} class="pr-16" bind:value={$formData.content} />
+				<Textarea
+					{...attrs}
+					class="pr-16"
+					bind:value={$formData.content}
+					placeholder="Today I totally messed up X, but I learned Y!"
+				/>
 				<EnhanceFieldDialog
 					triggerClass="absolute right-1 top-1"
 					field={$formData.content}
@@ -98,7 +114,7 @@
 	<Form.Field {form} name="tags">
 		<Form.Control let:attrs>
 			<Form.Label>Tags (optional)</Form.Label>
-			<Input {...attrs} bind:value={$formData.tags} />
+			<Input {...attrs} bind:value={$formData.tags} placeholder="programming, web" />
 		</Form.Control>
 		<Form.FormDescription>Comma separated list of tags</Form.FormDescription>
 		<Form.FieldErrors />
