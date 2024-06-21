@@ -147,7 +147,7 @@
 							<div
 								in:scale={{ duration: 200, easing: quintOut, start: 0.95, opacity: 0 }}
 								out:scale={{ duration: 150, easing: quintOut, start: 1, opacity: 0 }}
-								class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-stone-900 border border-border/60 p-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+								class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-background border border-border/60 p-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
 								role="menu"
 								aria-orientation="vertical"
 								aria-labelledby="user-menu-button"
