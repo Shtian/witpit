@@ -1,38 +1,48 @@
-# create-svelte
+# The Wit Pit 🧠
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Collect and share your knowledge in the WitPit! Supports comments and an OpenAI powered writing assistant.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Prerequisites:
+
+- Node.js
+- pnpm
+- Supabase CLI
+
+Start Supabase:
 
 ```bash
-npm run dev
+supabase start
+# or check status
+supabase status
+```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+Enter the details from the status page into `.env.example` and rename it to `.env`. You probably might want to add a real or fake OpenAI API key and Assistant ID to avoid crashing the app.
+
+Reset the DB to run migrations and seed data:
+
+```bash
+supabase db reset
+```
+
+This will add 10 users to the local database with the username `user{1-10}@example.com` and password `password123`.
+
+Start developing:
+
+```bash
+
+pnpm install
+
+pnpm dev
 ```
 
 ## Building
 
-To create a production version of your app:
+To create a production version:
 
 ```bash
 npm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
